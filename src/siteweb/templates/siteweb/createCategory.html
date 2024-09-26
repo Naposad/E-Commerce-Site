@@ -1,0 +1,13 @@
+
+{% extends 'index.html' %}
+{% block title %}
+    crée-catégorie
+{% endblock %}
+{% block container %}
+<h1>Crée une catégorie </h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Crée-catégorie</button>
+    </form>
+{% endblock %}

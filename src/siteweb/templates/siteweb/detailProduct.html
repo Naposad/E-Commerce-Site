@@ -1,0 +1,39 @@
+
+{% extends 'index.html' %}
+{% block title %}
+    detail-produit
+{% endblock %}
+{% block container %}
+<h1>Crée une catégorie </h1>
+<div class="supplier-buttom">
+    <a href="{% url 'update-product' slug=product.slug %}"><button>Modifier</button></a>
+    <a href="{% url 'delete-product' slug=product.slug %}"><button>Supprimer</button></a>
+    <form method="POST" action="{% url 'add-order' product_id=product.pk %}">
+        {% csrf_token %}
+        <button type="submit">Ajouter au Panier</button>
+    </form>
+</div>
+
+<article>
+    {% if product.image %}
+        <picture>
+            <img src="{{ product.image.url }}" alt="image">
+        </picture>
+    {% else %}
+        <picture>
+            {# Image par défaut des articles qui n'ont pas images #}
+            <img src="" alt="image">
+        </picture>
+    {% endif %}
+    <h3>{{product.name}}</h3>
+    <div>
+        <p>
+        Prix : {{product.price}} <br>
+        fournisseur : {{product.author}}
+    </p>
+    <p>
+        {{product.description}}
+    </p>
+    </div>
+</article>
+{% endblock %}

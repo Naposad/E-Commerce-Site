@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {% block header %}{% endblock%}
+</head>
+<body>
+    <header>
+        <div class="navbar-container">
+            <nav>
+                <div class="navbar">
+                    <picture>
+                        <img src="" alt="image">
+                    </picture>
+                    <ul>
+                        <li><a href="{% url 'list-product' %}">Accueil</a></li>
+                        <li><a href="{% url 'products' %}">Produit</a></li>
+                        <li><a href="#">Catégorie</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+
+                    <ul>
+                        {% if user.is_authenticated %}
+                        <li><a href="/profile"><i class="fa-solid fa-user"></i></a></li>
+                        <li><a href="/accounts/logout/">Déconnections</a></li>
+                        <li><a href="{% url 'order-list-product' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        {% else %}
+                        <li><a href="/accounts/login/">se connecter</a></li>
+                        <li><a href="/accounts/signup/">creé compte</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        {% block container %}{% endblock %}
+    </div>
+    <footer></footer>
+        <div class="footer-container">
+            <p class="footer-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, veniam?</p>
+        </div>
+    </footer>
+</body>
+</html>

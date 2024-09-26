@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+
+{% block title %}
+Profil-de-{{ user.username }}
+{% endblock  %}
+
+{% block header %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'siteweb/css/profile.css' %}">
+{% endblock %}
+
+{% block container %}
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>Profil de {{ user.username }}</h1>
+    </div>
+
+    <div class="profile-info">
+        <h2>Informations personnelles</h2>
+        <p><strong>Nom d'utilisateur:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Date d'inscription:</strong> {{ user.date_joined|date:"d M Y" }}</p>
+        
+        <a href="/#" class="btn btn-primary">Modifier le profil</a>
+    </div>
+
+    <div class="profile-orders">
+        <h2>Commandes récentes</h2>
+        {% if orders %}
+            <ul class="order-list">
+                {% for order in orders %}
+                <li>
+                    <strong>Commande #{{ order.id }}</strong> - {{ order.created_at|date:"d M Y" }} - 
+                    <a href="/#">Voir les détails</a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Vous n'avez pas encore passé de commandes.</p>
+        {% endif %}
+    </div>
+
+    <div class="profile-actions">
+        <h2 id="space">Actions</h2>
+        <a href="/accounts/password/change/" class="btn btn-warning">Changer le mot de passe</a>
+        <a href="/accounts/logout" class="btn btn-danger">Déconnexion</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+
+{% extends 'index.html' %}
+{% block title %}
+    liste-categorie
+{% endblock %}
+
+{% block header %}
+{% load static %}
+{% endblock %}
+
+
+
+{% block container %}
+    <div class="category-container-base">
+        <h1> Liste des catégories </h1>
+        <div class="category">
+            {% for category in category %}
+            <div class="category-container">
+                <div class="rot">
+                    <div class="rot">
+                        <h1>{{category.name}}</h1>
+                        <div class="rot" >
+                            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+{% endblock %}

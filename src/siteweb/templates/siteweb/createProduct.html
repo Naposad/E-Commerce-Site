@@ -1,0 +1,13 @@
+
+{% extends 'index.html' %}
+{% block title %}
+    Cree-produit
+{% endblock %}
+{% block container %}
+<h1>Crée un produit</h1>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Crée-produit</button>
+</form>
+{% endblock %}

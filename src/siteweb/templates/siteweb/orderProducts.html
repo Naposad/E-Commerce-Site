@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cree-produit</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des produits dans le panier</h1>
+        {% for product in order_product %}
+            <div class="order-product">
+                {{product}}
+            </div>
+        {% endfor %}
+        <h3>Prix total: {{total}}</h3>
+    </div>
+</body>
+</html>

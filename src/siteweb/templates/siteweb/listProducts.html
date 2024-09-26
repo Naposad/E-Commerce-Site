@@ -1,0 +1,177 @@
+{% extends 'index.html' %}
+{% block title %}
+list-produit
+{% endblock %}
+{% load static %}
+
+{% block header %}
+<link rel="stylesheet" href="{% static 'siteweb/css/accueil.css' %}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Montserrat:wght@200&display=swap"
+    rel="stylesheet">
+{% endblock %}
+{% block container %}
+<div class="accueil">
+    <div class="intro">
+        <div class="circle">
+        </div>
+        <br>
+        <div class="intro-text">
+            <h1 id="special">DERNIERE OFFRE</h1>
+            <h1><big class="big-text">70%</big></h1>
+            <div class="special">
+                <h6>SUR TOUTS NOS PRODUITS</h6>
+                <a href="/"><button>Commencer</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="intro-img">
+        <img src="{% static 'siteweb/images/large-carrinho-blog.webp' %}" alt="image">
+    </div>
+</div>
+<div class="apropos">
+    <div class="apropos-title">
+        <h2>A propos</h2>
+    </div>
+    <div class="apropos-text">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam voluptatibus facilis dicta ad id,
+            exercitationem,quis placeat aperiam sequi in quidem amet animi. Quae amet sunt corporis obcaecati libero!
+            Sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis corporis quis esse maxime cumque
+            iste ipsum rem. Harum, recusandae ea, ex reprehenderit deserunt nobis ratione id quaerat porro voluptas sit.
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed inventore saepe aliquid perferendis
+            perspiciatis? Aliquid, amet illum. Repellendus error ab quod. Quis libero deleniti perferendis officia. Quos
+            molestiae fugiat harum.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis possimus quod officia expedita eveniet
+            nesciunt, labore modi? Quibusdam, libero reprehenderit? Nobis explicabo quibusdam, optio laudantium libero
+            ullam incidunt? Quidem, dolore?</p>
+    </div>
+</div>
+</div>
+
+
+</div>
+<div class="service">
+    <div class="service-title apropos-title">
+        <h2>Produits</h2>
+
+    </div>
+    <p id="nouveauté">
+        NOUVEAUTE
+    </p>
+    <div class="product-container">
+        {% if products %}
+        {% for product in products|slice:":3" %}
+        <article>
+            <a href="{% url 'detail-product' slug=product.slug %}">
+                {% if product.image %}
+                <div class="image-carte">
+                    <img src="{{ product.image.url }}" alt="image">
+                </div>
+                {% else %}
+                <div class="image-carte">
+                    {# Image par défaut des articles qui n'ont pas images #}
+                    <img src="{% static 'siteweb/images/image.png' %}" alt="image">
+                </div>
+                {% endif %}
+            </a>
+            <h3 style="margin-top: 20px; margin-left: 15px;">{{product.name}}</h3>
+            <p>
+                Prix : {{product.price}}<br><br>
+                <a href="{% url 'detail-product' slug=product.slug %}"><button type="button">Voir</button></a>
+            </p>
+        </article>
+        {% endfor %}
+        {% endif %}
+    </div>
+    <div class="product-container-best-con">
+        <p id="nouveauté">
+            PLUS VENDUTS
+        </p>
+
+        <div class="product-container-best">
+            {% if products %}
+            {% for product in products|slice:":4" %}
+            <article id="article">
+                <a href="{% url 'detail-product' slug=product.slug %}">
+                    {% if product.image %}
+                    <div class="image-carte" id="image-carte">
+                        <img src="{{ product.image.url }}" alt="image">
+                    </div>
+                    {% else %}
+                    <div class="image-carte" id="image-carte-else">
+                        {# Image par défaut des articles qui n'ont pas images #}
+                        <img src="{% static 'siteweb/images/image.png' %}" alt="image">
+                    </div>
+                    {% endif %}
+                </a>
+                <h3 style="margin-top: 20px; margin-left: 15px;">{{product.name}}</h3>
+                <p>
+                    Prix : {{product.price}}<br><br>
+                    <a href="{% url 'detail-product' slug=product.slug %}"><button type="button">Voir</button></a>
+                </p>
+            </article>
+            {% endfor %}
+            {% endif %}
+        </div>
+        
+    </div>
+    <div class="title">
+        <h2>&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp &nap; Categorys</h2>
+        <div class="title-name">
+            <div>Electronique</div>
+            <div>Beauté</div>
+            <div>Vetement</div>
+            <div>Sports & Loisirs</div>
+        </div>
+    </div>
+    <div class="category">
+        <div class="category-container">
+            <div class="rot">
+                <div class="rot">
+                    <div class="rot" >
+                        <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-container">
+            <div class="rot">
+                <div class="rot">
+                    <div class="rot" >
+                        <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-container">
+            <div class="rot">
+                <div class="rot">
+                    <div class="rot" >
+                        <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="category-container">
+            <div class="rot">
+                <div class="rot">
+                    <div class="rot" >
+                        <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+    </div>  
+
+
+    {% endblock %}

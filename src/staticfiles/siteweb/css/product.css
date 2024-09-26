@@ -1,0 +1,13 @@
+
+.container
+{
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    grid-template-rows: repeat(7);
+
+}
+
+.row
+{
+
+}

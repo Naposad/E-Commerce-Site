@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block title %}
+Modifier-catégorie 
+{% endblock %}
+
+{% block header %} 
+
+{% endblock %}
+
+
+{% block container %} 
+<h1>Modification du Produit</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Modifier-catégorie</button>
+        </form>
+{% endblock %}
