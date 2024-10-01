@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'index1.html' %}
 {% block title %}
 list-produit
 {% endblock %}
@@ -26,7 +26,7 @@ list-produit
             <h1><big class="big-text">70%</big></h1>
             <div class="special">
                 <h6>SUR TOUTS NOS PRODUITS</h6>
-                <a href="/"><button>Commencer</button></a>
+                <a href="#debut"><button>Commencer</button></a>
             </div>
         </div>
     </div>
@@ -58,7 +58,7 @@ list-produit
 </div>
 <div class="service">
     <div class="service-title apropos-title">
-        <h2>Produits</h2>
+        <h2 id="debut">Produits</h2>
 
     </div>
     <p id="nouveauté">
@@ -119,7 +119,7 @@ list-produit
             {% endfor %}
             {% endif %}
         </div>
-        
+
     </div>
     <div class="title">
         <h2>&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp &nap; Categorys</h2>
@@ -132,46 +132,26 @@ list-produit
     </div>
     <div class="category">
         <div class="category-container">
-            <div class="rot">
-                <div class="rot">
-                    <div class="rot" >
-                        <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
-                    </div>
-                </div>
-            </div>
+            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+
         </div>
         <div class="category-container">
-            <div class="rot">
-                <div class="rot">
-                    <div class="rot" >
-                        <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
-                    </div>
-                </div>
-            </div>
+            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+
         </div>
         <div class="category-container">
-            <div class="rot">
-                <div class="rot">
-                    <div class="rot" >
-                        <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
-                    </div>
-                </div>
-            </div>
+            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+
         </div>
         <div class="category-container">
-            <div class="rot">
-                <div class="rot">
-                    <div class="rot" >
-                        <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
-                    </div>
-                </div>
-            </div>
+            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+
         </div>
     </div>
 
 
-    </div>
-    </div>  
+</div>
+</div>
 
 
-    {% endblock %}
+{% endblock %}

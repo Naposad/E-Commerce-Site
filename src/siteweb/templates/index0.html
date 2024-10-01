@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <div class="navbar-container default">
+            <!----------------- Logo -------------->
+            <div class="logo">
+                <img src="#" alt="logo"
+            </div>
+
+
+              
+            
+            <!----------------- Navbar link -------------->
+            <ul class="navbar-ul">
+                <li><a href="{% url 'list-product' %}">Accueil</a></li>
+
+
+                            <!----------------- Product link -------------->
+                <li>
+                                <!----------------- icon of product -------------->
+                    <div  class="Produit-icon ">
+                        produits
+                    </div>
+                                
+                    <!----------------- Product link elements -------------->
+
+                    <!---<ul class="prduct-ul">
+                        <li><a href="">Electronique</a></li>
+                        <li><a href="">Vetement & Accessoire</a></li>
+                        <li><a href="">Sports & Loisirs</a></li>
+                        <li><a href="">Machine & Equipement</a></li>
+                        <li><a href="">Emballages & Impressions</a></li>
+                    </ul> ---->
+                </li>
+                <li><a href="#">Catégorie</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="navbar-ul " >
+                {% if user.is_authenticated %}
+                <li><a href="/profile"><i class="fa-solid fa-user"></i></a></li>
+                <li><a href="/accounts/logout/">Déconnections</a></li>
+                <li><a href="{% url 'order-list-product' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                {% else %}
+                <li><a href="/accounts/login/">se connecter</a></li>
+                <li><a href="/accounts/signup/">creé compte</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </header>
+</body>
+
+</html>

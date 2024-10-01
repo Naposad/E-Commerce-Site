@@ -1,0 +1,21 @@
+{% extends 'index1.html' %}
+
+{% block container %}
+  <div class="container">
+    <h2>Contactez-nous</h2>
+    
+    {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="btn btn-primary">Envoyer</button>
+    </form>
+  </div>
+{% endblock %}

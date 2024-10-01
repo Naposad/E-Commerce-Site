@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/L.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Déconnexion</title>
+</head>
+<body>
+    <header>
+
+        <nav>
+            <picture>
+                <img src="" alt="image">
+            </picture>
+            <ul class="menu">
+                <li><a href="{% url 'list-product' %}">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#">Produits</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'list-product-electronic' %}">Electronique </a></li>
+                        <li><a href="{% url 'list-product-vetement' %}">Vetements</a></li>
+                        <li><a href="{% url 'list-product-sport' %}">Sports & Loisirss</a></li>
+                        <li><a href="{% url 'list-product-emballage' %}">Emballages</a></li>
+                        <li><a href="{% url 'list-product-machine' %}">Machines</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <ul class="menu">
+                {% if user.is_authenticated %}
+                <li><a href="/profile"><i class="fa-solid fa-user"></i></a></li>
+                <li><a href="{% url 'order-list-product' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/accounts/logout/">Déconnections</a></li>
+                {% else %}
+                <li><a href="/accounts/login/">se connecter</a></li>
+                <li><a href="/accounts/signup/">creé compte</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <div class="rond"></div>
+        <div class="form">
+            <form method="POST" id="form-logout">
+                <!-- Jeton CSRF nécessaire pour les formulaires Django -->
+                {% csrf_token %}
+                
+                <p style="text-align: center;">Êtes-vous sûr de vouloir vous déconnecter ?</p><br>
+                
+                <div class="logout">
+                    <!-- Bouton pour annuler et revenir à la liste des produits -->
+                    <a href="{% url 'list-product' %}">
+                        <button type="button" class="button-siez">Annuler</button>
+                    </a>
+                    
+                    <!-- Bouton pour la déconnexion -->
+                    <input type="submit" value="Déconnexion" style="background-color: #e75a5a;" class="button-siez"><br>
+                </div>
+            </form>
+        </div>
+        <div class="rond coler"></div>
+    </div>
+    
+</body>
+</html>

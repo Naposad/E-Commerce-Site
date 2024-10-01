@@ -1,4 +1,4 @@
-{% extends 'index.html' %}
+{% extends 'index1.html' %}
 
 
 {% block title %}
@@ -43,7 +43,7 @@ Profil-de-{{ user.username }}
 
     <div class="profile-actions">
         <h2 id="space">Actions</h2>
-        <a href="/accounts/password/change/" class="btn btn-warning">Changer le mot de passe</a>
+        <a href="{% url 'password_change' %}" class="btn btn-warning">Changer le mot de passe</a>
         <a href="/accounts/logout" class="btn btn-danger">Déconnexion</a>
     </div>
 </div>

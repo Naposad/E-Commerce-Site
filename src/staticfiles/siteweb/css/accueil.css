@@ -259,12 +259,7 @@ article p
     height: 280px;
 }
 
-.rot:hover
-{
-    transform: rotate(40deg);
-    border:1px solid;
-    transition: all 2s ;
-}
+
 
 .category
 {
@@ -300,11 +295,16 @@ article p
     display: flex;
 }
 
+.title-name div
+{
+    max-height: 45px;
+}
+
 .title-name
 {
     display: grid;
     grid-template-columns: repeat(4,100px);
-    gap: 155px;
+    column-gap: 155px;
     border: 1px solid black;
     font-size: 25px;
     justify-content: center;

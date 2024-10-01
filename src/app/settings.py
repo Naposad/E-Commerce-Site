@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'siteweb',
+    'accounts',
 
     # Les apps pour l'authentification avec Allauth
     'django.contrib.sites',  # Nécessaire pour Allauth
@@ -145,9 +147,11 @@ ACCOUNT_AUTHENTICATION_METHOD = 'username'  # Peut être 'username', 'email', ou
 ACCOUNT_EMAIL_REQUIRED = True  # L'email est-il obligatoire ?
 ACCOUNT_EMAIL_VERIFICATION = 'none'  # Peut être 'none', 'optional', ou 'mandatory'
 ACCOUNT_USERNAME_REQUIRED = True  # Le nom d'utilisateur est-il obligatoire ?
-LOGIN_REDIRECT_URL = '/'  # URL de redirection après la connexion
-LOGOUT_REDIRECT_URL = '/'  # URL de redirection après la déconnexion
+LOGIN_REDIRECT_URL = '/list-product/'  # URL de redirection après la connexion
+LOGOUT_REDIRECT_URL = '/accounts/login/'  # URL de redirection après la déconnexion
 
 STATIC_ROOT = BASE_DIR/'staticfiles/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'mediafiles/'
+
+

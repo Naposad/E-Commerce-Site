@@ -221,7 +221,16 @@ article p
     align-items: center;
     text-transform: capitalize;
 }
-
+#nouveauté-b
+{
+    margin:  0px 80px 80px 80px;
+    border: #48ff00 solid 1px;
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+}
 .product-container-best
 {
     display: grid;
@@ -259,12 +268,6 @@ article p
     height: 280px;
 }
 
-.rot:hover
-{
-    transform: rotate(40deg);
-    border:1px solid;
-    transition: all 2s ;
-}
 
 .category
 {

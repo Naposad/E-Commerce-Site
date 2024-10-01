@@ -1,0 +1,180 @@
+/* Styles globaux, communs à toutes les tailles d'écran */
+* {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c9c9c9;
+    border-bottom: 1px solid #f3f3f3;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    padding: 0 15px;
+}
+
+.nav-ul {
+    display: flex;
+    gap: 25px;
+}
+
+#menu-ul {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.menu-link {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+}
+
+.menu-link-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+    background-color: #c9c9c9;
+    margin-top: 150px;
+    border-top-left-radius: 300px;
+    border-top-right-radius: 300px;
+}
+
+.footer-title {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Adaptation pour les écrans de moins de 1120px (tablettes et petits écrans) */
+@media (max-width: 1120px) {
+    .nav-ul {
+        display: none;
+    }
+
+    .navbar {
+        background-color: #c9c9c9;
+    }
+
+    #menu-ul {
+        display: block;
+    }
+
+    .menu-link {
+        background-color: rgba(19, 18, 18, 0.63);
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 70%;
+        height: 100vh;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 15px;
+        overflow: hidden;
+        transition: height 0.3s ease;
+        color: #5311fc;
+    }
+
+    .menu-link.open {
+        display: flex;
+        height: 100vh;
+    }
+
+    .menu-link-ul {
+        font-size: 1.5rem;
+    }
+}
+
+/* Version mobile : adaptation pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+
+    /* Ajustement de la navigation */
+    .navbar {
+        padding: 0 10px;
+    }
+
+    /* Menu hamburger : plus visible sur mobile */
+    #menu-ul {
+        display: block;
+        font-size: 2rem;
+    }
+
+    /* Menu mobile complet */
+    .menu-link {
+        background-color: #1e1e1e;
+        color: white;
+        width: 100%;
+        position: fixed;
+        top: 50px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        z-index: 100;
+    }
+
+    .menu-link-ul {
+        gap: 20px;
+        font-size: 1.2rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .menu-link-ul li {
+        width: 100%;
+    }
+
+    /* Les images du site : taille ajustable */
+    picture img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Conteneur principal : espace plus étroit */
+    .container {
+        padding: 20px 10px;
+    }
+
+    /* Texte et titres plus petits pour s'adapter à l'écran */
+    h1, h2, h3, p {
+        font-size: 1.1rem;
+        line-height: 1.5rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    .footer-title {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+}

@@ -1,0 +1,67 @@
+{% extends 'index1.html' %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/product.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+{% endblock %}
+
+{% block title %}
+list-product
+{% endblock %}
+
+{% block container %}
+<div class="product-container">
+    <div class="accueil-image">
+        <img src="{% static 'siteweb/images/accueil.jpeg' %}" alt="image-accueil">
+        <form method="GET" action="{% url 'products' %}" class="search-form">
+            <input type="search" name="q" placeholder="Rechercher un produit">
+            <button type="submit" class="search-buttom"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
+        </form>
+    </div>
+    
+
+    <div class="container-article">
+        {% for product in products %}
+        <article>
+            <a href="{% url 'detail-product' slug=product.slug %}">
+                {% if product.image %}
+                <div class="image-carte">
+                    <img src="{{ product.image.url }}" alt="image">
+                </div>
+                {% else %}
+                <div class="image-carte">
+                    <img src="{% static 'siteweb/images/image.png' %}" alt="image">
+                </div>
+                {% endif %}
+            </a>
+            <h3 style="margin-top: 20px; margin-left: 15px;">{{product.name}}</h3>
+            <p style=" margin-left: 15px; margin-bottom: 0px;">
+                Prix : {{product.price}}<br><br>
+                <a href="{% url 'detail-product' slug=product.slug %}"><button type="button">Voir</button></a>
+            </p>
+        </article>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+            <a href="?page=1">Première</a>
+            <a href="?page={{ page_obj.previous_page_number }}">Précédent</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">Suivant</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">Dernière</a>
+            {% endif %}
+        </span>
+    </div>
+</div>
+
+{% endblock %}

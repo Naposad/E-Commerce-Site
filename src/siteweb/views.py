@@ -1,14 +1,18 @@
 from django.db.models.query import QuerySet
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, TemplateView, DetailView, DeleteView, UpdateView, ListView
+from django.views.generic import CreateView, TemplateView, DetailView, DeleteView, UpdateView, ListView, FormView
+
+from .forms import ContactForm
 
 from .models import Products, Category, Order, OrderProducts
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render
-from .models import Order  # Exemple de mo
+from .models import Order , Contact # Exemple de mo
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 
 # Create your views here.
@@ -143,3 +147,88 @@ def profile_view(request):
     }
     return render(request, 'siteweb/profile.html', context)
 
+
+class ListProductsElectronic(ListView):
+    template_name = 'siteweb/electronicProduct.html'
+    model = Products
+    context_object_name = 'products'
+    paginate_by = 3
+    
+    def get_queryset(self):
+        q = self.request.GET.get('q')
+        if q:
+                return Products.objects.filter(name__icontains=q, status=True)
+        return Products.objects.filter(category=Category.objects.get(name='Electronique').id,status=True)
+    
+    
+    
+
+class ListProductsSport(ListView):
+    template_name = 'siteweb/sportProduct.html'
+    model = Products
+    context_object_name = 'products'
+    paginate_by = 3
+    
+    def get_queryset(self):
+        q = self.request.GET.get('q')
+        if q:
+                return Products.objects.filter(name__icontains=q, status=True)
+        return Products.objects.filter(category=Category.objects.get(name='Sports & Loisirs').id,status=True)
+    
+
+class ListProductsMachine(ListView):
+    template_name = 'siteweb/machineProduct.html'
+    model = Products
+    context_object_name = 'products'
+    paginate_by = 3
+    
+    def get_queryset(self):
+        q = self.request.GET.get('q')
+        if q:
+                return Products.objects.filter(name__icontains=q, status=True)
+        return Products.objects.filter(category=Category.objects.get(name='Machines').id,status=True)
+    
+class ListProductsEmballage(ListView):
+    template_name = 'siteweb/emballageProduct.html'
+    model = Products
+    context_object_name = 'products'
+    paginate_by = 3
+    
+    def get_queryset(self):
+        q = self.request.GET.get('q')
+        if q:
+                return Products.objects.filter(name__icontains=q, status=True)
+        return Products.objects.filter(category=Category.objects.get(name='Emballage et impression').id,status=True)
+    
+    
+class ListProductsVetement(ListView):
+    template_name = 'siteweb/vetementProduct.html'
+    model = Products
+    context_object_name = 'products'
+    paginate_by = 3
+    
+    def get_queryset(self):
+        q = self.request.GET.get('q')
+        if q:
+                return Products.objects.filter(name__icontains=q, status=True)
+        return Products.objects.filter(category=Category.objects.get(name='Vêtements').id,status=True)
+    
+    
+    
+class ContactView(CreateView):
+    form_class = ContactForm
+    model = Contact
+    template_name = 'siteweb/contact.html'
+    success_url = reverse_lazy('contact')  # Rediriger après soumission
+
+    def form_valid(self, form):
+        # Enregistrer les données du formulaire
+        response = super().form_valid(form)
+        # Afficher un message de succès
+        messages.success(self.request, 'Merci pour votre message, nous vous contacterons bientôt.')
+        return response
+
+    def form_invalid(self, form):
+        # Afficher un message d'erreur si le formulaire est invalide
+        messages.error(self.request, 'Veuillez corriger les erreurs ci-dessous.')
+        return super().form_invalid(form)

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="L.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/L.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Login</title>
+</head>
+<body>
+    <header>
+
+        <nav>
+            <picture>
+                <img src="" alt="image">
+            </picture>
+            <ul class="menu">
+                <li><a href="{% url 'list-product' %}">Accueil</a></li>
+                <li class="dropdown">
+                    <a href="#">Produits</a>
+                    <ul class="submenu">
+                        <li><a href="{% url 'list-product-electronic' %}">Electronique </a></li>
+                        <li><a href="{% url 'list-product-vetement' %}">Vetements</a></li>
+                        <li><a href="{% url 'list-product-sport' %}">Sports & Loisirss</a></li>
+                        <li><a href="{% url 'list-product-emballage' %}">Emballages</a></li>
+                        <li><a href="{% url 'list-product-machine' %}">Machines</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <ul class="menu">
+                {% if user.is_authenticated %}
+                <li><a href="/profile"><i class="fa-solid fa-user"></i></a></li>
+                <li><a href="{% url 'order-list-product' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                <li><a href="/accounts/logout/">Déconnections</a></li>
+                {% else %}
+                <li><a href="/accounts/login/">se connecter</a></li>
+                <li><a href="/accounts/signup/">creé compte</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="rond"></div>
+        <div class="form">
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Nom d'utilisateur -->
+                <label for="login">Nom utilisateur</label>
+                <input type="text" id="login" name="login" class="input form-control" 
+                       value="{{ form.login.value|default:'' }}" 
+                       placeholder="Entrez votre nom utilisateur"><br>
+                       
+                <!-- Mot de passe -->
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" class="input form-control" 
+                       placeholder="Entrez votre mot de passe"><br>
+                       
+                <!-- Bouton de connexion -->
+                <input type="submit" value="Connexion" style="background-color: #ffb000; height: 35px; width: 250px;"><br>
+                
+                <!-- Connexion via les réseaux sociaux -->
+                <div class="social">
+                    <a href=""><button type="button"><i class="fa-brands fa-google"></i> Google</button></a>
+                    <a href=""><button type="button"><i class="fa-brands fa-facebook"></i> Facebook</button></a>
+                </div>
+            </form>
+        </div>
+        <div class="rond coler"></div>
+    </div>
+    
+</body>
+</html>
