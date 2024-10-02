@@ -19,8 +19,9 @@ urlpatterns = [
     path('product-list-emb/',ListProductsEmballage.as_view(), name='list-product-emballage'),
     path('<str:slug>/detail/', DetailProductsView.as_view(), name='detail-product'),
     path('<str:slug>/update/', UpdateProductsView.as_view(), name='update-product'),
-    path('<str:slug>/delete', DeleteProducts.as_view(), name='delete-product'),
+    path('<str:slug>/delete/', DeleteProducts.as_view(), name='delete-product'),
     path('contact/', ContactView.as_view(), name='contact'),
+    path('tableau-de-bord/', TableauBord.as_view(), name='tableau-de-bord'),
 
 
 

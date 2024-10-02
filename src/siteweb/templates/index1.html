@@ -33,6 +33,12 @@
                     </ul>
                 </li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
+                {% for group in request.user.groups.all %}
+                {% if group.name == 'Fournisseur' %}
+                <li><a href="{% url 'tableau-de-bord' %}">Outils</a></li>
+                {% endif %}
+                {% endfor %}
+
             </ul>
             <ul class="menu">
                 {% if user.is_authenticated %}
@@ -46,7 +52,7 @@
             </ul>
         </nav>
     </header>
-    <div class="container"></div>
+    <div class="container-base">
     {% block container %}{% endblock %}
     </div>
     <footer></footer>

@@ -18,9 +18,10 @@ list-product
         <form method="GET" action="{% url 'products' %}" class="search-form">
             <input type="search" name="q" placeholder="Rechercher un produit">
             <button type="submit" class="search-buttom"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
+            <a href="{% url 'create-product' %}"><button class="search-buttom" type="button"><i class="fa-solid fa-plus"></i></button></a>
         </form>
     </div>
-    
+
 
     <div class="container-article">
         {% for product in products %}
@@ -36,6 +37,10 @@ list-product
                 </div>
                 {% endif %}
             </a>
+            <ul style="display: flex; gap: 45px;">
+                <li style="list-style: none;"><a href="{% url 'update-product' slug=product.slug %}" style="text-decoration: none; color:#4e04fc ;">Modifier</a>
+                <li style="list-style: none;"><a href="{% url 'delete-product' slug=product.slug %}" style="text-decoration: none; color:#4e04fc ; ">Supprimer</a></li>
+            </ul>
             <h3 style="margin-top: 20px; margin-left: 15px;">{{product.name}}</h3>
             <p style=" margin-left: 15px; margin-bottom: 0px;">
                 Prix : {{product.price}}<br><br>

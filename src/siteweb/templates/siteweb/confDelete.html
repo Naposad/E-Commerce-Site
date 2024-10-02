@@ -3,7 +3,7 @@
     confirmation-de-la-suppression
 {% endblock %}
 {% block container %}
-<form method="POST">
+<form method="POST" id="pour">
     {% csrf_token %}
     <p>Êtes-vous sûr de vouloir supprimer l'article {{product.name}}</p>
     <a href="{% url 'detail-product' slug=product.slug %}"><button type="button">Annuler</button></a>

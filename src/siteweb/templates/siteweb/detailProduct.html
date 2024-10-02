@@ -1,39 +1,55 @@
-
 {% extends 'index1.html' %}
 {% block title %}
-    detail-produit
+detail-produit
 {% endblock %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/detail.css' %}">
+{% endblock %}
+
 {% block container %}
-<h1>Crée une catégorie </h1>
-<div class="supplier-buttom">
-    <a href="{% url 'update-product' slug=product.slug %}"><button>Modifier</button></a>
-    <a href="{% url 'delete-product' slug=product.slug %}"><button>Supprimer</button></a>
-    <form method="POST" action="{% url 'add-order' product_id=product.pk %}">
-        {% csrf_token %}
-        <button type="submit">Ajouter au Panier</button>
-    </form>
-</div>
+<h1 id="pour" style="text-align: center;">|--------------- {{product.name}} -------------------|</h1>
 
 <article>
     {% if product.image %}
-        <picture>
-            <img src="{{ product.image.url }}" alt="image">
-        </picture>
+    <a href="{{ product.image.url }}">
+    <div class="image-container">
+        <img src="{{ product.image.url }}" alt="image">
+    </div>
+    </a>
     {% else %}
-        <picture>
-            {# Image par défaut des articles qui n'ont pas images #}
-            <img src="" alt="image">
-        </picture>
+    <a href="{% static 'siteweb/images/image.png' %}">
+    <div class="image-container">
+        {# Image par défaut des articles qui n'ont pas images #}
+        <img src="{% static 'siteweb/images/image.png' %}" alt="image">
+    </div>
+    </a>
     {% endif %}
-    <h3>{{product.name}}</h3>
-    <div>
-        <p>
+    <div class="article-descrition">
+        <div id="para">
+        <h3>{{product.name}}</h3>
         Prix : {{product.price}} <br>
-        fournisseur : {{product.author}}
-    </p>
-    <p>
-        {{product.description}}
-    </p>
+        fournisseur : {{product.author}}<br><br><br>
+        <p>
+            {{product.description}}
+        </p>
+        </div>
+
+        <div class="action">
+            {% if user.is_authenticated %}
+            <form method="POST" action="{% url 'add-order' product_id=product.pk %}" style="text-align: center;">
+                {% csrf_token %}
+                <button type="submit" style="background-color: #ffb000;">Ajouter au Panier</button>
+            </form><br>
+            {% for group in request.user.groups.all %}
+            {% if group.name == 'Fournisseur' %}
+            <a style="margin-right: 45px;" href="{% url 'update-product' slug=product.slug %}"><button style="background-color: #2ee72e;">Modifier</button></a>
+            <a href="{% url 'delete-product' slug=product.slug %}"><button style="background-color: #2ee72e;">Supprimer</button></a>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </div>
     </div>
 </article>
 {% endblock %}

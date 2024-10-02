@@ -4,49 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa622e96-5223-4bcc-92e2-3cc3832877ed" name="Changes" comment="interface utilisateur est en cour développement">
-      <change afterPath="$PROJECT_DIR$/src/accounts/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/accounts/templates/account/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/accounts/templates/account/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/accounts/templates/account/password_change.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/accounts/templates/account/signup.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/accounts/templates/autre/L.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/accounts/templates/autre/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/accounts/templates/autre/logout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/migrations/0005_contact.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/static/css/L.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/static/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/static/css/signup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/static/css/styles1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/static/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/index0.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/index1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/contact.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/electronicProduct.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/emballageProduct.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/machineProduct.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/sportProduct.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/vetementProduct.html" afterDir="false" />
+    <list default="true" id="aa622e96-5223-4bcc-92e2-3cc3832877ed" name="Changes" comment="implementation de vues pour différents produits">
+      <change afterPath="$PROJECT_DIR$/src/siteweb/static/siteweb/css/detail.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/tableau-de-bord.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/siteweb/templatetags/group_tags.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/static/siteweb/css/accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/static/siteweb/css/accueil.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/siteweb/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/static/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/siteweb/static/css/styles1.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/static/css/styles1.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/siteweb/templates/index1.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/index1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/siteweb/templates/siteweb/confDelete.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/confDelete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/templates/siteweb/createCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/createCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/templates/siteweb/createProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/createProduct.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/siteweb/templates/siteweb/detailProduct.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/detailProduct.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/templates/siteweb/listProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/listProducts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/templates/siteweb/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/templates/siteweb/updateCategory.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/updateCategory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/templates/siteweb/updateProducts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/templates/siteweb/updateProducts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/siteweb/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/siteweb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/staticfiles/siteweb/css/accueil.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/staticfiles/siteweb/css/accueil.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,8 +26,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -101,6 +71,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Napo\PycharmProjects\E-Commerce\src\siteweb\templatetags" />
       <recent name="C:\Users\Napo\PycharmProjects\E-Commerce\src\siteweb\templates" />
     </key>
   </component>
@@ -153,12 +124,21 @@
       <option name="project" value="LOCAL" />
       <updated>1727369350152</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="implementation de vues pour différents produits">
+      <option name="closed" value="true" />
+      <created>1727807609177</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727807609177</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="interface utilisateur est en cour développement" />
-    <option name="LAST_COMMIT_MESSAGE" value="interface utilisateur est en cour développement" />
+    <MESSAGE value="implementation de vues pour différents produits" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementation de vues pour différents produits" />
   </component>
 </project>
