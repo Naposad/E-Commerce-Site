@@ -15,7 +15,7 @@ list-product
 <div class="product-container">
     <div class="accueil-image">
         <img src="{% static 'siteweb/images/accueil.jpeg' %}" alt="image-accueil">
-        <form method="GET" action="{% url 'tableau-de-bord ' %}" class="search-form">
+        <form method="GET" action="{% url 'tableau-de-bord' %}" class="search-form">
             <input type="search" name="q" placeholder="Rechercher un produit">
             <button type="submit" class="search-buttom"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
             <a href="{% url 'create-product' %}"><button class="search-buttom" type="button"><i class="fa-solid fa-plus"></i></button></a>

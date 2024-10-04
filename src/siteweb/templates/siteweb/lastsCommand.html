@@ -9,17 +9,18 @@
 </head>
 <body>
     <div class="container">
+        <h1>Liste des produits dans le panier</h1>
         {% if commands %}
         {% for command in commands %}
-        <h1>Liste des produits dans le panier</h1>
-        {% for product in command.order.products %}
-            <div class="order-product">
-                {{product.name}} quantitée commandé : {{product.quantity}}
-            </div>
+        <h4>Produits dans cette commande N° : {{forloop.counter}}</h4>
+            <ul>
+                {% for product in command.commandproducts_set.all %}
+                    <li>{{ product.product.name }} - Quantité : {{ product.quantity }} - Prix unitaire : {{ product.price_at_purchase }} fcfa</li>
+                {% endfor %}
+            </ul>
+            <h3>Prix total: {{command.total}}</h3>
         {% endfor %}
-        <h3>Prix total: {{command.total}}</h3>
     </div>
-    {% endfor %}
     {% else %}
     <div class="container">
         <h2>Pour le moment auccune commande n'a été effectuer !</h2>

@@ -1,3 +1,4 @@
+import random
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.db.models.query import QuerySet
 from django.http import HttpResponse
@@ -8,12 +9,14 @@ from django.views.generic import CreateView, TemplateView, DetailView, DeleteVie
 
 from .forms import ContactForm
 
-from .models import Products, Category, Order, OrderProducts, Command
+from .models import Products, Category, Order, OrderProducts, Command, CommandProducts
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render
 from .models import Order, Contact  # Exemple de mo
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db import transaction
+
 
 
 # Create your views here.
@@ -257,20 +260,52 @@ class TableauBord(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return Products.objects.filter(author=self.request.user)
 
 
+
 class CommandView(LoginRequiredMixin, View):
     def post(self, request, *args, **kwargs):
-        myorder = Order.objects.get(user=self.request.user)
-        commande = Command.objects.create(
-            order = myorder,
-            status = 'payée',
-            )
-        OrderProducts.objects.filter(order=myorder).delete()
-        commande.save()
-        return  redirect('lasts-command' )
+        userConnect = request.user
+        try:
+            myorder = Order.objects.get(user=self.request.user)
+
+            with transaction.atomic():
+                # Création de la commande
+                commande = Command.objects.create(
+                    order=myorder,
+                    status='payée',
+                )
+                # Copier les produits dans CommandProducts
+                for item in myorder.orderproducts_set.all():
+                    CommandProducts.objects.create(
+                        user = userConnect,
+                        command=commande,
+                        product=item.products,
+                        quantity=item.quantity,
+                        price_at_purchase=item.products.price
+                )
+
+                # Suppression des produits associés à l'ordre
+                OrderProducts.objects.filter(order=myorder).delete()
+
+                # Sauvegarde de la commande
+                commande.save()
+
+            return redirect('lasts-command')
+
+        except Order.DoesNotExist:
+            return HttpResponse("Aucune commande en cours", status=404)
+        
     
     
+
     
 class HistoricCommand(LoginRequiredMixin, ListView):
     model = Command
     template_name = 'siteweb/lastsCommand.html'
     context_object_name = 'commands'
+    
+    def get_queryset(self):
+        return Command.objects.filter(order=Order.objects.get(user=self.request.user)).order_by('date_on').prefetch_related('commandproducts_set')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context

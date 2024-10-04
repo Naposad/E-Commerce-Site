@@ -87,7 +87,7 @@ class Contact(models.Model):
 
 
 class Command(models.Model):
-    order = models.OneToOneField(Order, on_delete=models.CASCADE)
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
     date_on = models.DateTimeField(auto_now_add=True)
     status = models.CharField(choices=choix, max_length=100)
     total = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
@@ -98,3 +98,17 @@ class Command(models.Model):
             total = sum(item.get_totale_price() for item in self.order.orderproducts_set.all())
             self.total = total
         super().save(*agrs, **kwargs)
+
+
+class CommandProducts(models.Model):
+    user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    command = models.ForeignKey(Command, on_delete=models.CASCADE)
+    product = models.ForeignKey(Products, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    price_at_purchase = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def get_total_price(self):
+        return self.quantity * self.price_at_purchase
+    
+    def __str__(self) -> str:
+        return f'{self.product} quantitée commandé : {self.quantity}'
