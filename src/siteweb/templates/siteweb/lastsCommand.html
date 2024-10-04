@@ -8,23 +8,21 @@
     <title>Cree-produit</title>
 </head>
 <body>
-    {% if order_product %}
     <div class="container">
+        {% if commands %}
+        {% for command in commands %}
         <h1>Liste des produits dans le panier</h1>
-        {% for product in order_product %}
+        {% for product in command.order.products %}
             <div class="order-product">
-                {{product}}
+                {{product.name}} quantitée commandé : {{product.quantity}}
             </div>
         {% endfor %}
-        <h3>Prix total: {{total}}</h3><br>
-        <form method="POST" action="{% url 'command-product' %}">
-            {% csrf_token %}
-            <input type="submit" value="Commander">
-        </form>
+        <h3>Prix total: {{command.total}}</h3>
     </div>
+    {% endfor %}
     {% else %}
     <div class="container">
-        <h2>Pour le moment auccun produit n'a été ajouter au panier !</h2>
+        <h2>Pour le moment auccune commande n'a été effectuer !</h2>
     </div>
     {% endif %}
 </body>

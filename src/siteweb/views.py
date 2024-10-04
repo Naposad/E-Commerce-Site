@@ -8,7 +8,7 @@ from django.views.generic import CreateView, TemplateView, DetailView, DeleteVie
 
 from .forms import ContactForm
 
-from .models import Products, Category, Order, OrderProducts
+from .models import Products, Category, Order, OrderProducts, Command
 from django.shortcuts import get_object_or_404, redirect
 from django.shortcuts import render
 from .models import Order, Contact  # Exemple de mo
@@ -18,7 +18,7 @@ from django.contrib import messages
 
 # Create your views here.
 
-class CreateCategoryView(LoginRequiredMixin,  PermissionRequiredMixin, CreateView):
+class CreateCategoryView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Category
     template_name = 'siteweb/createCategory.html'
     success_url = reverse_lazy('')
@@ -33,12 +33,10 @@ class ListCategoryView(LoginRequiredMixin, PermissionRequiredMixin, ListView):
     permission_required = ['siteweb.view_category']
 
 
-
 class UpdateCategoryView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
     model = Category
     template_name = 'siteweb/updateCategory.html'
     permission_required = ['siteweb.change_category']
-
 
 
 class DeleteCategory(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
@@ -105,7 +103,7 @@ class DeleteProducts(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
 """""
 
 
-class AddOrder(LoginRequiredMixin,View):
+class AddOrder(LoginRequiredMixin, View):
     def post(self, request, product_id):
         products = get_object_or_404(Products, id=product_id)
 
@@ -241,6 +239,7 @@ class ContactView(CreateView):
         messages.error(self.request, 'Veuillez corriger les erreurs ci-dessous.')
         return super().form_invalid(form)
 
+
 class TableauBord(LoginRequiredMixin, UserPassesTestMixin, ListView):
     template_name = 'siteweb/tableau-de-bord.html'
     model = Products
@@ -251,6 +250,27 @@ class TableauBord(LoginRequiredMixin, UserPassesTestMixin, ListView):
         return self.request.user.groups.filter(name='Fournisseur')
 
     def get_queryset(self):
+        q = self.request.GET.get('q')
+        if q:
+            return Products.objects.filter(name__icontains=q, author=self.request.user)
         # Filtre les produits de l'utilisateur connecté
         return Products.objects.filter(author=self.request.user)
 
+
+class CommandView(LoginRequiredMixin, View):
+    def post(self, request, *args, **kwargs):
+        myorder = Order.objects.get(user=self.request.user)
+        commande = Command.objects.create(
+            order = myorder,
+            status = 'payée',
+            )
+        OrderProducts.objects.filter(order=myorder).delete()
+        commande.save()
+        return  redirect('lasts-command' )
+    
+    
+    
+class HistoricCommand(LoginRequiredMixin, ListView):
+    model = Command
+    template_name = 'siteweb/lastsCommand.html'
+    context_object_name = 'commands'

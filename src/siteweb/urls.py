@@ -22,6 +22,8 @@ urlpatterns = [
     path('<str:slug>/delete/', DeleteProducts.as_view(), name='delete-product'),
     path('contact/', ContactView.as_view(), name='contact'),
     path('tableau-de-bord/', TableauBord.as_view(), name='tableau-de-bord'),
+    path('lasts-command/', HistoricCommand.as_view(), name='lasts-command'),
+    path('command-product/', CommandView.as_view(), name='command-product')
 
 
 

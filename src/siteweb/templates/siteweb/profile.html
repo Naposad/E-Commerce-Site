@@ -32,7 +32,7 @@ Profil-de-{{ user.username }}
                 {% for order in orders %}
                 <li>
                     <strong>Commande #{{ order.id }}</strong> - {{ order.created_at|date:"d M Y" }} - 
-                    <a href="/#">Voir les détails</a>
+                    <a href="{% url 'lasts-command' %}">Voir l'historique</a>
                 </li>
                 {% endfor %}
             </ul>
