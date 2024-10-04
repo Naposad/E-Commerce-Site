@@ -3,8 +3,14 @@
 {% block title %}
     crée-catégorie
 {% endblock %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/detail.css' %}">
+{% endblock %}
+
 {% block container %}
-<h1>Crée une catégorie </h1>
+<h1 id="pour">Crée une catégorie </h1>
     <form method="POST">
         {% csrf_token %}
         {{form.as_p}}

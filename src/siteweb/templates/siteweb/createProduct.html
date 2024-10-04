@@ -3,8 +3,14 @@
 {% block title %}
     Cree-produit
 {% endblock %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/detail.css' %}">
+{% endblock %}
+
 {% block container %}
-<h1>Crée un produit</h1>
+<h1 id="pour">Crée un produit</h1>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
