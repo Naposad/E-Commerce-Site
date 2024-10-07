@@ -1,30 +1,32 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cree-produit</title>
-</head>
-<body>
-    <div class="container">
-        <h1>Liste des produits dans le panier</h1>
-        {% if commands %}
-        {% for command in commands %}
-        <h4>Produits dans cette commande N° : {{forloop.counter}}</h4>
-            <ul>
-                {% for product in command.commandproducts_set.all %}
-                    <li>{{ product.product.name }} - Quantité : {{ product.quantity }} - Prix unitaire : {{ product.price_at_purchase }} fcfa</li>
-                {% endfor %}
-            </ul>
-            <h3>Prix total: {{command.total}}</h3>
-        {% endfor %}
-    </div>
-    {% else %}
-    <div class="container">
-        <h2>Pour le moment auccune commande n'a été effectuer !</h2>
-    </div>
-    {% endif %}
-</body>
-</html>
+
+{% extends 'index1.html' %}
+{% block title %}
+    Cree-produit
+{% endblock %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/forms.css' %}">
+
+{% endblock %}
+
+{% block container %}
+<div class="hist">
+    <h1 >Liste des produits par commande </h1><br><br>
+    {% if commands %}
+    {% for command in commands %}
+    <h4>Commande N° : {{forloop.counter}}</h4>
+        <ol type="1" style="margin-left: 35px;">
+            {% for product in command.commandproducts_set.all %}
+                <li>{{ product.product.name }} - Quantité : {{ product.quantity }} - Prix unitaire : {{ product.price_at_purchase }} fcfa</li>
+            {% endfor %}
+        </ol>
+        <h3>Prix total: {{command.total}}</h3><br>
+    {% endfor %}
+</div>
+{% else %}
+<div class= "hist">
+    <h2>Pour le moment auccune commande n'a été effectuer !</h2>
+</div>
+{% endif %}
+{% endblock %}

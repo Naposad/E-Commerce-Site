@@ -126,7 +126,15 @@ class OrderProduct(LoginRequiredMixin, ListView):
     context_object_name = 'order_product'
 
     def get_queryset(self):
-        queryset = OrderProducts.objects.filter(order=self.request.user.order)
+        if hasattr(self.request.user, 'order'):
+            # L'utilisateur a une commande, donc tu peux procéder
+            order = self.request.user.order
+            queryset = OrderProducts.objects.filter(order=order)
+
+        else:
+        # Gérer le cas où l'utilisateur n'a pas de commande
+            queryset = OrderProducts.objects.none()
+
         return queryset
 
     def get_context_data(self, **kwargs):

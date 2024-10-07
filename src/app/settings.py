@@ -153,5 +153,3 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'  # URL de redirection après la déconn
 STATIC_ROOT = BASE_DIR/'staticfiles/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'mediafiles/'
-
-

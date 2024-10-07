@@ -2,12 +2,21 @@
 {% block title %}
     confirmation-de-la-suppression
 {% endblock %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/forms.css' %}">
+{% endblock %}
 {% block container %}
-<form method="POST" id="pour">
-    {% csrf_token %}
-    <p>Êtes-vous sûr de vouloir supprimer l'article {{product.name}}</p>
-    <a href="{% url 'detail-product' slug=product.slug %}"><button type="button">Annuler</button></a>
-    <button type="submit">Supprimer</button>
-</form>
+<div class="container" id="spcial-container">
+    <form method="POST">
+        {% csrf_token %}
+        <p style="text-align: center;">Êtes-vous sûr de vouloir supprimer l'article {{product.name}}</p>
+        <div>
+            <a href="{% url 'detail-product' slug=product.slug %}"><button type="button" class="special-buttom" >Annuler</button></a>
+            <button type="submit" class="special-buttom color">Supprimer</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
 

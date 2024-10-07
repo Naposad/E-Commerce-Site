@@ -6,14 +6,18 @@
 
 {% block header %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'siteweb/css/detail.css' %}">
+<link rel="stylesheet" href="{% static 'siteweb/css/forms.css' %}">
 {% endblock %}
 
 {% block container %}
-<h1 id="pour">Crée une catégorie </h1>
+<div class="container">
+    <h1 class="title">Crée une catégorie </h1>
     <form method="POST">
         {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Crée-catégorie</button>
+        <table>
+            {{form.as_table}}
+        </table>
+        <button type="submit" class="button">Crée-catégorie</button>
     </form>
+</div>
 {% endblock %}

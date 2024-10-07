@@ -1,19 +1,23 @@
-{% extends 'index1.html' %}
 
+{% extends 'index1.html' %}
 {% block title %}
 Modifier-produit
 {% endblock %}
 
 {% block header %}
-
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/forms.css' %}">
 {% endblock %}
 
-
 {% block container %}
-<h1>Modification du Produit</h1>
-<form method="POST" enctype="multipart/form-data">
+<div class="container">
+    <h1 class="title">Modification du Produit</h1>
+    <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Modifier-catégorie</button>
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit" class="button">Modifier</button>
 </form>
+</div>
 {% endblock %}

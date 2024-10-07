@@ -1,8 +1,13 @@
 {% extends 'index1.html' %}
 
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/forms.css' %}">
+{% endblock %}
+
 {% block container %}
   <div class="container">
-    <h2>Contactez-nous</h2>
+    <h2 class="title">Contactez-nous</h2>
     
     {% if messages %}
       <ul class="messages">
@@ -14,7 +19,10 @@
     
     <form method="POST">
       {% csrf_token %}
-      {{ form.as_p }}
+      <table>
+        {{ form.as_table }}
+
+      </table>
       <button type="submit" class="btn btn-primary">Envoyer</button>
     </form>
   </div>

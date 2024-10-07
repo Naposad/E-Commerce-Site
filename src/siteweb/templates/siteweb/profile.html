@@ -20,7 +20,7 @@ Profil-de-{{ user.username }}
         <h2>Informations personnelles</h2>
         <p><strong>Nom d'utilisateur:</strong> {{ user.username }}</p>
         <p><strong>Email:</strong> {{ user.email }}</p>
-        <p><strong>Date d'inscription:</strong> {{ user.date_joined|date:"d M Y" }}</p>
+        <p><strong>Date d'inscription:</strong> {{ user.date_joined|date:"d M Y" }}</p><br>
         
         <a href="/#" class="btn btn-primary">Modifier le profil</a>
     </div>
@@ -31,7 +31,7 @@ Profil-de-{{ user.username }}
             <ul class="order-list">
                 {% for order in orders %}
                 <li>
-                    <strong>Commande #{{ order.id }}</strong> - {{ order.created_at|date:"d M Y" }} - 
+                    <strong>Commandes : </strong> - {{ order.created_at|date:"d M Y" }} - 
                     <a href="{% url 'lasts-command' %}">Voir l'historique</a>
                 </li>
                 {% endfor %}
@@ -42,7 +42,7 @@ Profil-de-{{ user.username }}
     </div>
 
     <div class="profile-actions">
-        <h2 id="space">Actions</h2>
+        <h2 id="space">Actions</h2><br>
         <a href="{% url 'password_change' %}" class="btn btn-warning">Changer le mot de passe</a>
         <a href="/accounts/logout" class="btn btn-danger">Déconnexion</a>
     </div>

@@ -122,31 +122,40 @@ list-produit
 
     </div>
     <div class="title">
-        <h2>&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp &nap; Categorys</h2>
+        <h2>&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp&nbsp;&nbsp&nbsp &nap; Categorys</h2><br><br>
         <div class="title-name">
             <div>Electronique</div>
-            <div>Beauté</div>
             <div>Vetement</div>
-            <div>Sports & Loisirs</div>
+            <div>Sports</div>
+            <div>Machines</div>
         </div>
     </div>
     <div class="category">
-        <div class="category-container">
-            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
-
-        </div>
-        <div class="category-container">
-            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
-
-        </div>
-        <div class="category-container">
-            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
-
-        </div>
-        <div class="category-container">
-            <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
-
-        </div>
+        <a href="{% url 'list-product-electronic' %}">
+            <div class="category-container">
+                <img src="{% static '/siteweb/images/pc.avif' %}" alt="electronic-image" class="image-category">
+    
+            </div>
+        </a>
+        
+        <a href="{% url 'list-product-vetement' %}">
+            <div class="category-container">
+                <img src="{% static '/siteweb/images/pc.avif' %}" alt="beauté-image" class="image-category">
+    
+            </div>
+        </a>
+        <a href="{% url 'list-product-sport' %}">
+            <div class="category-container">
+                <img src="{% static '/siteweb/images/pc.avif' %}" alt="vetement-image" class="image-category">
+    
+            </div>
+        </a>
+        <a href="{% url 'list-product-machine' %}">
+            <div class="category-container">
+                <img src="{% static '/siteweb/images/pc.avif' %}" alt="Sports-image" class="image-category">
+    
+            </div>
+        </a>
     </div>
 
 

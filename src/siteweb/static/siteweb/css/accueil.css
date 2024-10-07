@@ -259,7 +259,6 @@ article p
 {
     width: 280px;
     height: 280px;
-    border: 1px solid;
 }
 
 .rot
@@ -308,7 +307,6 @@ article p
     display: grid;
     grid-template-columns: repeat(4,100px);
     gap: 155px;
-    border: 1px solid black;
     font-size: 25px;
     justify-content: center;
     align-items: center;

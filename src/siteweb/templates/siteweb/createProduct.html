@@ -6,14 +6,18 @@
 
 {% block header %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'siteweb/css/detail.css' %}">
+<link rel="stylesheet" href="{% static 'siteweb/css/forms.css' %}">
 {% endblock %}
 
 {% block container %}
-<h1 id="pour">Crée un produit</h1>
+<div class="container">
+    <h1 class="title">Crée un produit</h1>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Crée-produit</button>
+    <table>
+        {{form.as_table}}
+    </table>
+    <button type="submit" class="button">Crée-produit</button>
 </form>
+</div>
 {% endblock %}

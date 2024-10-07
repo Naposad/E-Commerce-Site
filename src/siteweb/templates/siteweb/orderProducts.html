@@ -1,16 +1,20 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cree-produit</title>
-</head>
-<body>
+
+{% extends 'index1.html' %}
+{% block title %}
+    Cree-produit
+{% endblock %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'siteweb/css/forms.css' %}">
+{% endblock %}
+
+{% block container %}
+<div class="order">
     {% if order_product %}
-    <div class="container">
-        <h1>Liste des produits dans le panier</h1>
+    <div class="container" style=" background-color: #f0f0f0;
+">
+        <h1>Liste des produits du panier </h1>
         {% for product in order_product %}
             <div class="order-product">
                 {{product}}
@@ -23,9 +27,10 @@
         </form>
     </div>
     {% else %}
-    <div class="container">
+    <div class="container" style="background-color: #f0f0f0;
+">
         <h2>Pour le moment auccun produit n'a été ajouter au panier !</h2>
     </div>
     {% endif %}
-</body>
-</html>
+</div>
+{% endblock %}
