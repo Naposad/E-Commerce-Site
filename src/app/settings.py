@@ -40,6 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'siteweb',
     'accounts',
+    'mobile',
+    'rest_framework',
+    'rest_framework.authtoken',
+
+    'django_filters',
+    'dj_rest_auth',
+
+
 
     # Les apps pour l'authentification avec Allauth
     'django.contrib.sites',  # Nécessaire pour Allauth
@@ -57,11 +65,21 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware'
+    'allauth.account.middleware.AccountMiddleware',
+    
 
 ]
 
 ROOT_URLCONF = 'app.urls'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter'
+        
+        ],
+}
+
 
 TEMPLATES = [
     {
@@ -153,3 +171,13 @@ LOGOUT_REDIRECT_URL = '/accounts/login/'  # URL de redirection après la déconn
 STATIC_ROOT = BASE_DIR/'staticfiles/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'mediafiles/'
+
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+# Pour assurer la vérification de l'email
+#ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_REQUIRED = True

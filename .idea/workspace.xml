@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa622e96-5223-4bcc-92e2-3cc3832877ed" name="Changes" comment="innit du ficher requirements.txt">
+    <list default="true" id="aa622e96-5223-4bcc-92e2-3cc3832877ed" name="Changes" comment="custom de l'interface creation , modification et cel de l'historique des produits">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/siteweb/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/siteweb/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +146,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728083203250</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="custom de l'interface creation , modification et cel de l'historique des produits">
+      <option name="closed" value="true" />
+      <created>1728264217220</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1728264217220</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -157,6 +164,7 @@
     <MESSAGE value="Customisation de la vue detail et implémentation de l'interface outil pour les fournisseurs qui va leur permettre de gérer les produits" />
     <MESSAGE value="finalisation de la gestion de la  historique des commandes" />
     <MESSAGE value="innit du ficher requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="innit du ficher requirements.txt" />
+    <MESSAGE value="custom de l'interface creation , modification et cel de l'historique des produits" />
+    <option name="LAST_COMMIT_MESSAGE" value="custom de l'interface creation , modification et cel de l'historique des produits" />
   </component>
 </project>

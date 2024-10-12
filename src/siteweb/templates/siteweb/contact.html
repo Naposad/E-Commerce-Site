@@ -10,7 +10,7 @@
     <h2 class="title">Contactez-nous</h2>
     
     {% if messages %}
-      <ul class="messages">
+      <ul class="messages" style="list-style: none; text-align: center; color: green;">
         {% for message in messages %}
           <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
         {% endfor %}

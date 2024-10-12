@@ -18,10 +18,16 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
+from mobile.urls import router as mobile_router
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('siteweb.urls')),
     path('accounts/', include('accounts.urls')),
+    path('api/', include('mobile.urls')),
+    path('api/auth/', include('dj_rest_auth.urls')),  # login, logout, password reset, etc.
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

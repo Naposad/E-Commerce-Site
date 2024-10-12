@@ -242,7 +242,7 @@ class ContactView(CreateView):
         # Enregistrer les données du formulaire
         response = super().form_valid(form)
         # Afficher un message de succès
-        messages.success(self.request, 'Merci pour votre message, nous vous contacterons bientôt.')
+        messages.success(self.request, 'Merci pour votre message, nous vous contacterons bientôt par email.')
         return response
 
     def form_invalid(self, form):
