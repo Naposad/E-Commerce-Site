@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'livereload',
     'django.contrib.staticfiles',
     'siteweb',
     'accounts',
@@ -46,8 +47,6 @@ INSTALLED_APPS = [
 
     'django_filters',
     'dj_rest_auth',
-
-
 
     # Les apps pour l'authentification avec Allauth
     'django.contrib.sites',  # Nécessaire pour Allauth
@@ -66,7 +65,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',
-    
+    'livereload.middleware.LiveReloadScript',
 
 ]
 
