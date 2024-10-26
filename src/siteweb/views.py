@@ -45,14 +45,14 @@ class UpdateCategoryView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView
 class DeleteCategory(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Category
     success_url = reverse_lazy('')
-    permission_required = ['siteweb.delete_product']
+    permission_required = ['siteweb.delete_products']
 
 
 class CreateProductsView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
     model = Products
     template_name = 'siteweb/createProduct.html'
     fields = ['category', 'name', 'image', 'description', 'price', 'stock', 'status']
-    permission_required = ['siteweb.add_product']
+    permission_required = ['siteweb.add_products']
 
     def get_success_url(self):
         return reverse_lazy('detail-product', kwargs={'slug': self.object.slug})
@@ -82,7 +82,7 @@ class UpdateProductsView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView
     model = Products
     template_name = 'siteweb/updateProducts.html'
     fields = ['category', 'name', 'image', 'description', 'price', 'stock', 'status']
-    permission_required = ['siteweb.change_product']
+    permission_required = ['siteweb.change_products']
 
     def get_success_url(self):
         return reverse_lazy('detail-product', kwargs={'slug': self.object.slug})
@@ -102,7 +102,7 @@ class DeleteProducts(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Products
     context_object_name = 'product'
     success_url = reverse_lazy('list-product')
-    permission_required = ['siteweb.delete_product']
+    permission_required = ['siteweb.delete_products']
 
     """""def" get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
