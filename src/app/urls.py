@@ -27,8 +27,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('siteweb.urls')),
     path('accounts/', include('accounts.urls')),
-    path('api/', include('mobile.urls')),
-    path('api/auth/', include('dj_rest_auth.urls')),  # login, logout, password reset, etc.
-    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+    #path('api/', include('mobile.urls')),
+    #path('api/auth/', include('dj_rest_auth.urls')),  # login, logout, password reset, etc.
+    #path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
 
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

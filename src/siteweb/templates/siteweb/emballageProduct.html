@@ -3,7 +3,9 @@
 {% block header %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'siteweb/css/product.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 {% endblock %}
 
@@ -14,15 +16,16 @@ list-product
 {% block container %}
 <div class="product-container">
     <div class="accueil-image">
-        <img src="{% static 'siteweb/images/accueil.jpeg' %}" alt="image-accueil">
+        <img src="{% static 'siteweb/images/cash-register-5174457_1280.jpg' %}" alt="image-accueil">
         <form method="GET" action="{% url 'products' %}" class="search-form">
             <input type="search" name="q" placeholder="Rechercher un produit">
             <button type="submit" class="search-buttom"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
         </form>
     </div>
-    
+
 
     <div class="container-article">
+        {% if products %}
         {% for product in products %}
         <article>
             <a href="{% url 'detail-product' slug=product.slug %}">
@@ -43,6 +46,9 @@ list-product
             </p>
         </article>
         {% endfor %}
+        {% else %}
+            <p style=" text-align: center; width: 1300px;" >Vide</p>
+        {% endif %}
     </div>
 
     <div class="pagination">

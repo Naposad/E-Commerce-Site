@@ -1,7 +1,6 @@
-
 {% extends 'index1.html' %}
 {% block title %}
-    Cree-produit
+Cree-produit
 {% endblock %}
 
 {% block header %}
@@ -16,9 +15,10 @@
 ">
         <h1>Liste des produits du panier </h1>
         {% for product in order_product %}
-            <div class="order-product">
-                {{product}}
-            </div>
+        <div class="order-product">
+            {{product}} <a
+                href="{% url 'update-product-quantity' slug=product.products.slug pk=product.pk %}">Modifier</a>
+        </div>
         {% endfor %}
         <h3>Prix total: {{total}}</h3><br>
         <form method="POST" action="{% url 'command-product' %}">
@@ -29,7 +29,7 @@
     {% else %}
     <div class="container" style="background-color: #f0f0f0;
 ">
-        <h2>Pour le moment auccun produit n'a été ajouter au panier !</h2>
+        <h2>Panier vide !</h2>
     </div>
     {% endif %}
 </div>

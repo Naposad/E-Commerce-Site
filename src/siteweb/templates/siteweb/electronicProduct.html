@@ -23,6 +23,7 @@ list-product
     
 
     <div class="container-article">
+        {% if products %}
         {% for product in products %}
         <article>
             <a href="{% url 'detail-product' slug=product.slug %}">
@@ -43,6 +44,9 @@ list-product
             </p>
         </article>
         {% endfor %}
+        {% else %}
+        <p style=" text-align: center; width: 1300px;">Vide</p>
+        {% endif %}
     </div>
 
     <div class="pagination">

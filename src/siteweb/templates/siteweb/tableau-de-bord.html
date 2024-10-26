@@ -3,7 +3,9 @@
 {% block header %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'siteweb/css/product.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 {% endblock %}
 
@@ -14,11 +16,12 @@ list-product
 {% block container %}
 <div class="product-container">
     <div class="accueil-image">
-        <img src="{% static 'siteweb/images/accueil.jpeg' %}" alt="image-accueil">
+        <img src="{% static 'siteweb/images/tools-3123521_1920.jpg' %}" alt="image-accueil">
         <form method="GET" action="{% url 'tableau-de-bord' %}" class="search-form">
             <input type="search" name="q" placeholder="Rechercher un produit">
             <button type="submit" class="search-buttom"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
-            <a href="{% url 'create-product' %}"><button class="search-buttom" type="button"><i class="fa-solid fa-plus"></i></button></a>
+            <a href="{% url 'create-product' %}"><button class="search-buttom" type="button"><i
+                        class="fa-solid fa-plus"></i></button></a>
         </form>
     </div>
 
@@ -38,8 +41,10 @@ list-product
                 {% endif %}
             </a>
             <ul style="display: flex; gap: 45px;">
-                <li style="list-style: none;"><a href="{% url 'update-product' slug=product.slug %}" style="text-decoration: none; color:#4e04fc ;">Modifier</a>
-                <li style="list-style: none;"><a href="{% url 'delete-product' slug=product.slug %}" style="text-decoration: none; color:#4e04fc ; ">Supprimer</a></li>
+                <li style="list-style: none;"><a href="{% url 'update-product' slug=product.slug %}"
+                        style="text-decoration: none; color:#4e04fc ;">Modifier</a>
+                <li style="list-style: none;"><a href="{% url 'delete-product' slug=product.slug %}"
+                        style="text-decoration: none; color:#4e04fc ; ">Supprimer</a></li>
             </ul>
             <h3 style="margin-top: 20px; margin-left: 15px;">{{product.name}}</h3>
             <p style=" margin-left: 15px; margin-bottom: 0px;">

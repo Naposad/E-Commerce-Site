@@ -120,29 +120,28 @@ body
 {
     width: 298px;
     height: 200px;
-    border: 1px solid #00b7ff;
     border-radius: 25px;
 }
 
 #image-carte
 {
     width: 200px;
-    height: 150px;
+    height: 130px;
     border: 1px solid green;
     border-radius: 20px;
 }
 
 #image-carte-else
 {
-    width: 200px;
-    height: 150px;
+    width: 198px;
+    height: 130px;
     border: 1px solid green;
     border-radius: 20px;
 }
 #image-carte-else img
 {
-    width: 200px;
-    height: 150px;
+    width: 198px;
+    height: 130px;
     border: 1px solid green;
     border-radius: 20px;
 }
@@ -151,15 +150,15 @@ body
 #image-carte img
 {
     width: 100%;
-    height: 150px;
-    border-radius: 25px;
+    height: 130px;
+    border-radius: 20px;
 }
 
 .image-carte img
 {
     width: 100%;
     height: 200px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 25px;
 }
 
@@ -214,14 +213,25 @@ article p
 #nouveauté
 {
     margin:  0px 80px 80px 80px;
-    border: #48ff00 solid 1px;
     width: auto;
     height: 50px;
     display: flex;
     align-items: center;
     text-transform: capitalize;
+    color: #000;
+    font-size: 25px;
 }
+#nouveauté-b
+{
+    margin:  0px 80px 80px 80px;
+    width: auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    font-size: 25px;
 
+}
 .product-container-best
 {
     display: grid;
@@ -231,6 +241,7 @@ article p
     justify-content: center;
     align-items: center;
     padding-bottom: 80px;
+    color: #000;
 
 }
 
@@ -248,15 +259,11 @@ article p
 
 .category-container
 {
-    width: 280px;
-    height: 280px;
-    border: 1px solid;
-}
-
-.rot
-{
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 
@@ -264,9 +271,8 @@ article p
 .category
 {
     display: grid;
-    grid-template-columns: repeat(4, 250px);
+    grid-template-columns: repeat(4, 300px);
     gap: 45px;
-    border: 1px solid;
     justify-content: center;
     align-items: center;
     
@@ -291,21 +297,18 @@ article p
 {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: contain;
     display: flex;
-}
-
-.title-name div
-{
-    max-height: 45px;
+    border: 1px solid;
+    object-fit: cover;
+    clip-path: circle(50%);
 }
 
 .title-name
 {
     display: grid;
     grid-template-columns: repeat(4,100px);
-    column-gap: 155px;
-    border: 1px solid black;
+    gap: 155px;
     font-size: 25px;
     justify-content: center;
     align-items: center;
@@ -315,4 +318,26 @@ article p
 {
     margin-top: 100px;
 
+}
+
+.category-image-container
+{
+    margin-top: 15px;
+    object-fit: contain;
+    display: flex;
+    border: 1px solid;
+    object-fit: cover;
+    clip-path: circle(40%);
+}
+
+
+.category-container :first-child
+{
+    color: black;
+    font-size: 35px;
+}
+
+.none-title
+{
+    display: none;
 }

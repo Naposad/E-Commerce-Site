@@ -14,7 +14,7 @@ list-product
 {% block container %}
 <div class="product-container">
     <div class="accueil-image">
-        <img src="{% static 'siteweb/images/accueil.jpeg' %}" alt="image-accueil">
+        <img src="{% static 'siteweb/images/dirt-bike-1868996_1280.jpg' %}" alt="image-accueil">
         <form method="GET" action="{% url 'products' %}" class="search-form">
             <input type="search" name="q" placeholder="Rechercher un produit">
             <button type="submit" class="search-buttom"><i class="fa-solid fa-magnifying-glass fa-2xl"></i></button>
@@ -23,6 +23,7 @@ list-product
     
 
     <div class="container-article">
+        {% if products %}
         {% for product in products %}
         <article>
             <a href="{% url 'detail-product' slug=product.slug %}">
@@ -43,6 +44,9 @@ list-product
             </p>
         </article>
         {% endfor %}
+        {% else %}
+        <p style=" text-align: center; width: 1300px;">Vide</p>
+        {% endif %}
     </div>
 
     <div class="pagination">

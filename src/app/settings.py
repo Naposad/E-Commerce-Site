@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'siteweb',
     'accounts',
-    'mobile',
+    #'mobile',
     'rest_framework',
     'rest_framework.authtoken',
 
@@ -49,10 +49,10 @@ INSTALLED_APPS = [
     'dj_rest_auth',
 
     # Les apps pour l'authentification avec Allauth
-    'django.contrib.sites',  # Nécessaire pour Allauth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',  # Si tu veux gérer l'authentification via des réseaux sociaux
+    'allauth.socialaccount.providers.google',  # Pour Google OAuth
 
 ]
 
@@ -132,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'fr'
 
 TIME_ZONE = 'UTC'
 
@@ -160,9 +160,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 # Configuration d'Allauth
-ACCOUNT_AUTHENTICATION_METHOD = 'username'  # Peut être 'username', 'email', ou 'username_email'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # Peut être 'username', 'email', ou 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True  # L'email est-il obligatoire ?
-ACCOUNT_EMAIL_VERIFICATION = 'none'  # Peut être 'none', 'optional', ou 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'  # Peut être 'none', 'optional', ou 'mandatory'
 ACCOUNT_USERNAME_REQUIRED = True  # Le nom d'utilisateur est-il obligatoire ?
 LOGIN_REDIRECT_URL = '/list-product/'  # URL de redirection après la connexion
 LOGOUT_REDIRECT_URL = '/accounts/login/'  # URL de redirection après la déconnexion
@@ -171,12 +171,13 @@ STATIC_ROOT = BASE_DIR/'staticfiles/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'mediafiles/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-AUTHENTICATION_BACKENDS = (
-    "django.contrib.auth.backends.ModelBackend",
-    "allauth.account.auth_backends.AuthenticationBackend",
-)
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'votre_email@gmail.com'
+EMAIL_HOST_PASSWORD = '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'
+DEFAULT_FROM_EMAIL = 'votre_email@gmail.com'
 
-# Pour assurer la vérification de l'email
-#ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-ACCOUNT_EMAIL_REQUIRED = True
+

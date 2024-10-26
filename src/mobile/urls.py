@@ -13,5 +13,5 @@ router.register('outil', utilProduct, basename='outil')
 
 
 urlpatterns = [
-    path('', include(router.urls)),
+    #path('', include(router.urls)),
 ]

@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa622e96-5223-4bcc-92e2-3cc3832877ed" name="Changes" comment="custom de l'interface creation , modification et cel de l'historique des produits" />
+    <list default="true" id="aa622e96-5223-4bcc-92e2-3cc3832877ed" name="Changes" comment="custom de l'interface creation , modification et cel de l'historique des produits">
+      <change beforePath="$PROJECT_DIR$/src/accounts/templates/account/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/accounts/templates/account/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/src/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mobile/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mobile/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mobile/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/mobile/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,20 +51,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.Run.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Napo/PycharmProjects/E-Commerce/src/manage.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.Run.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Napo/PycharmProjects/E-Commerce/src/manage.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Napo\PycharmProjects\E-Commerce\src\siteweb" />
+      <recent name="C:\Users\Napo\PycharmProjects\E-Commerce\src\app" />
       <recent name="C:\Users\Napo\PycharmProjects\E-Commerce\src\siteweb\templatetags" />
       <recent name="C:\Users\Napo\PycharmProjects\E-Commerce\src\siteweb\templates" />
     </key>

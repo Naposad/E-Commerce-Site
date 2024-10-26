@@ -7,7 +7,6 @@ body
 {
     width: 100%;
     height: auto;
-    border: solid 1px blue;
     margin-bottom: 100px;
 }
 
@@ -20,8 +19,8 @@ body
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
-    border: #eb5858 2px solid;
     padding-bottom: 25px;
+    /*il faut une bordure stylisé pour montré la fin des produits et le debut du next page*/
     
 }
 

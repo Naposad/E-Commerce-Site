@@ -90,6 +90,11 @@ class UpdateProductsView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView
     def form_valid(self, form):
         form.instance.image = self.request.FILES.get('image', form.instance.image)  # Traiter l'image
         return super().form_valid(form)
+    
+    
+    def get_queryset(self):
+        queryst = Products.objects.filter(author=self.request.user)
+        return queryst
 
 
 class DeleteProducts(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
@@ -147,7 +152,7 @@ class ListProducts(ListView):
     template_name = 'siteweb/listProducts-products.html'
     model = Products
     context_object_name = 'products'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
         q = self.request.GET.get('q')
@@ -171,7 +176,7 @@ class ListProductsElectronic(ListView):
     template_name = 'siteweb/electronicProduct.html'
     model = Products
     context_object_name = 'products'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
         q = self.request.GET.get('q')
@@ -184,7 +189,7 @@ class ListProductsSport(ListView):
     template_name = 'siteweb/sportProduct.html'
     model = Products
     context_object_name = 'products'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
         q = self.request.GET.get('q')
@@ -197,7 +202,7 @@ class ListProductsMachine(ListView):
     template_name = 'siteweb/machineProduct.html'
     model = Products
     context_object_name = 'products'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
         q = self.request.GET.get('q')
@@ -210,7 +215,7 @@ class ListProductsEmballage(ListView):
     template_name = 'siteweb/emballageProduct.html'
     model = Products
     context_object_name = 'products'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
         q = self.request.GET.get('q')
@@ -223,7 +228,7 @@ class ListProductsVetement(ListView):
     template_name = 'siteweb/vetementProduct.html'
     model = Products
     context_object_name = 'products'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
         q = self.request.GET.get('q')
@@ -255,7 +260,7 @@ class TableauBord(LoginRequiredMixin, UserPassesTestMixin, ListView):
     template_name = 'siteweb/tableau-de-bord.html'
     model = Products
     context_object_name = 'products'
-    paginate_by = 5
+    paginate_by = 10
 
     def test_func(self):
         return self.request.user.groups.filter(name='Fournisseur')
@@ -317,3 +322,17 @@ class HistoricCommand(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
+    
+class updateOrderProduct(UpdateView, LoginRequiredMixin):
+    model = OrderProducts
+    fields = ['quantity']
+    template_name = 'siteweb/updateOrderProduct.html'
+    
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['product_name'] = Products.objects.get(slug=self.kwargs['slug'])
+        return context
+    
+    def get_success_url(self):
+        return reverse_lazy('order-list-product')

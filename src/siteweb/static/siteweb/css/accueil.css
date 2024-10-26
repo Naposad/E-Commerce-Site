@@ -120,7 +120,6 @@ body
 {
     width: 298px;
     height: 200px;
-    border: 1px solid #00b7ff;
     border-radius: 25px;
 }
 
@@ -214,22 +213,24 @@ article p
 #nouveauté
 {
     margin:  0px 80px 80px 80px;
-    border: #48ff00 solid 1px;
     width: auto;
     height: 50px;
     display: flex;
     align-items: center;
     text-transform: capitalize;
+    color: #000;
+    font-size: 25px;
 }
 #nouveauté-b
 {
     margin:  0px 80px 80px 80px;
-    border: #48ff00 solid 1px;
     width: auto;
     height: 50px;
     display: flex;
     align-items: center;
     text-transform: capitalize;
+    font-size: 25px;
+
 }
 .product-container-best
 {
@@ -240,6 +241,7 @@ article p
     justify-content: center;
     align-items: center;
     padding-bottom: 80px;
+    color: #000;
 
 }
 
@@ -257,23 +259,20 @@ article p
 
 .category-container
 {
-    width: 280px;
-    height: 280px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.rot
-{
-    width: 280px;
-    height: 280px;
-}
 
 
 .category
 {
     display: grid;
-    grid-template-columns: repeat(4, 250px);
+    grid-template-columns: repeat(4, 300px);
     gap: 45px;
-    border: 1px solid;
     justify-content: center;
     align-items: center;
     
@@ -300,6 +299,9 @@ article p
     height: 250px;
     object-fit: contain;
     display: flex;
+    border: 1px solid;
+    object-fit: cover;
+    clip-path: circle(50%);
 }
 
 .title-name
@@ -318,3 +320,24 @@ article p
 
 }
 
+.category-image-container
+{
+    margin-top: 15px;
+    object-fit: contain;
+    display: flex;
+    border: 1px solid;
+    object-fit: cover;
+    clip-path: circle(40%);
+}
+
+
+.category-container :first-child
+{
+    color: black;
+    font-size: 35px;
+}
+
+.none-title
+{
+    display: none;
+}
